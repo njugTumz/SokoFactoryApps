@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp3.MainPage"
+             Padding="24,48,24,24">
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="0"  
+                                 BackgroundColor="White"  
+                                 Padding="24,48,24,0">
+                <Label Text="Food Delivery"  
+                       FontSize="26"  
+                       FontAttributes="Bold"  
+                       TextColor="#222"  
+                       Margin="0,0,0,8"/>
+                <Label Text="Deliver now"  
+                       FontSize="14"  
+                       TextColor="#B299D6"/>
+                <Label Text="Current Location"  
+                       FontSize="18"  
+                       TextColor="#4B4B4B"  
+                       FontAttributes="Bold"  
+                       Margin="0,0,0,12"/>
+                <!-- Search Bar -->
+                <Frame BackgroundColor="#F4F4F8"  
+                       HasShadow="False"  
+                       CornerRadius="16"  
+                       HeightRequest="48"  
+                       Padding="12,0"  
+                       Margin="0,0,0,12">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Image Source="search.png"  
+                               WidthRequest="22"  
+                               HeightRequest="22"  
+                               Grid.Column="0"  
+                               VerticalOptions="Center"  
+                               Margin="0,0,8,0"/>
+                        <Entry Placeholder="Search for restaurants or dishes"  
+                               FontSize="16"  
+                               BackgroundColor="Transparent"  
+                               Grid.Column="1"/>
+                        <Image Source="filter.png"  
+                               WidthRequest="22"  
+                               HeightRequest="22"  
+                               Grid.Column="2"  
+                               VerticalOptions="Center"  
+                               Opacity="0.4"/>
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Categories Horizontal Scroll -->
+            <ScrollView Orientation="Horizontal"  
+                        Padding="0,0,0,8"  
+                        Margin="0">
+                <HorizontalStackLayout Spacing="16"  
+                                       Padding="24,0,0,0">
+                    <Frame BackgroundColor="#F4F4F8"  
+                           CornerRadius="20"  
+                           Padding="16,8"  
+                           HasShadow="False">
+                        <Label Text="Pizza" FontSize="15" TextColor="#222" />
+                    </Frame>
+                    <Frame BackgroundColor="#F4F4F8"  
+                           CornerRadius="20"  
+                           Padding="16,8"  
+                           HasShadow="False">
+                        <Label Text="Burgers" FontSize="15" TextColor="#222" />
+                    </Frame>
+                    <Frame BackgroundColor="#F4F4F8"  
+                           CornerRadius="20"  
+                           Padding="16,8"  
+                           HasShadow="False">
+                        <Label Text="Sushi" FontSize="15" TextColor="#222" />
+                    </Frame>
+                    <Frame BackgroundColor="#F4F4F8"  
+                           CornerRadius="20"  
+                           Padding="16,8"  
+                           HasShadow="False">
+                        <Label Text="Chicken" FontSize="15" TextColor="#222" />
+                    </Frame>
+                    <Frame BackgroundColor="#F4F4F8"  
+                           CornerRadius="20"  
+                           Padding="16,8"  
+                           HasShadow="False">
+                        <Label Text="Desserts" FontSize="15" TextColor="#222" />
+                    </Frame>
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <!-- Add Food Section -->
+            <Grid ColumnDefinitions="*,*,*,Auto"  
+                  Padding="24,0,24,0"  
+                  Margin="0,0,0,20">
+                <Entry Placeholder="Food Name"  
+                       FontSize="15"  
+                       BackgroundColor="#F4F4F8"  
+                       HeightRequest="44"  
+                       Margin="0,0,8,0"  
+                       />
+                <Entry Grid.Column="1"  
+                       Placeholder="Category"  
+                       FontSize="15"  
+                       BackgroundColor="#F4F4F8"  
+                       HeightRequest="44"  
+                       Margin="0,0,8,0"  
+                       />
+                <Entry Grid.Column="2"  
+                       Placeholder="Price"  
+                       FontSize="15"  
+                       Keyboard="Numeric"  
+                       BackgroundColor="#F4F4F8"  
+                       HeightRequest="44"  
+                       Margin="0,0,8,0"  
+                      />
+                <Button Text="Add"  
+                        Grid.Column="3"  
+                        HeightRequest="44"  
+                        Padding="20,0"  
+                        BackgroundColor="#B299D6"  
+                        TextColor="White"  
+                        FontSize="15"  
+                        CornerRadius="12"/>
+            </Grid>
+
+            <!-- Restaurant/Food Cards -->
+            <VerticalStackLayout Spacing="28"  
+                                 Padding="24,0,24,24">
+
+                <!-- Food Card 1 -->
+                <Frame HasShadow="False"  
+                       BorderColor="#EEE"  
+                       CornerRadius="20"  
+                       Padding="0"  
+                       Margin="0,0,0,0"  
+                       HeightRequest="220">
+                    <Grid RowDefinitions="130,Auto" ColumnDefinitions="*">
+                        <!-- Food image with rounded corners via Frame -->
+                        <Frame Padding="0"  
+                               CornerRadius="20"  
+                               HasShadow="False"  
+                               IsClippedToBounds="True"  
+                               HeightRequest="130"  
+                               Grid.Row="0">
+                            <Image Source="burger_sample.jpg"  
+                                   Aspect="AspectFill"  
+                                   HeightRequest="130"/>
+                        </Frame>
+                        <!-- Info Row -->
+                        <VerticalStackLayout Grid.Row="1"  
+                                             Spacing="2"  
+                                             Padding="16,10,16,12">
+                            <Label Text="Classic Burger"  
+                                   FontSize="17"  
+                                   FontAttributes="Bold"  
+                                   TextColor="#222"/>
+                            <Label Text="Burgers • Fast Food"  
+                                   FontSize="14"  
+                                   TextColor="#888"/>
+                            <Grid ColumnDefinitions="Auto,Auto,*,Auto" Margin="0,6,0,0">
+                                <Label Text="4.6 ★"  
+                                       FontSize="13"  
+                                       TextColor="#B299D6"  
+                                       Margin="0,0,10,0"  
+                                       VerticalOptions="Center"/>
+                                <BoxView Color="#888"  
+                                         WidthRequest="3"  
+                                         HeightRequest="3"  
+                                         CornerRadius="1.5"  
+                                         VerticalOptions="Center"  
+                                         Margin="0,0,10,0"/>
+                                <Label Text="25 min"  
+                                       FontSize="13"  
+                                       TextColor="#888"  
+                                       VerticalOptions="Center"/>
+                                <Label Text="$8.99"  
+                                       FontSize="15"  
+                                       TextColor="#222"  
+                                       FontAttributes="Bold"  
+                                       HorizontalOptions="End"  
+                                       Grid.Column="3"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Food Card 2 -->
+                <Frame HasShadow="False"  
+                       BorderColor="#EEE"  
+                       CornerRadius="20"  
+                       Padding="0"  
+                       HeightRequest="220">
+                    <Grid RowDefinitions="130,Auto" ColumnDefinitions="*">
+                        <Frame Padding="0"  
+                               CornerRadius="20"  
+                               HasShadow="False"  
+                               IsClippedToBounds="True"  
+                               HeightRequest="130"  
+                               Grid.Row="0">
+                            <Image Source="pizza_sample.jpg"  
+                                   Aspect="AspectFill"  
+                                   HeightRequest="130"/>
+                        </Frame>
+                        <VerticalStackLayout Grid.Row="1"  
+                                             Spacing="2"  
+                                             Padding="16,10,16,12">
+                            <Label Text="Pepperoni Pizza"  
+                                   FontSize="17"  
+                                   FontAttributes="Bold"  
+                                   TextColor="#222"/>
+                            <Label Text="Pizza • Italian"  
+                                   FontSize="14"  
+                                   TextColor="#888"/>
+                            <Grid ColumnDefinitions="Auto,Auto,*,Auto" Margin="0,6,0,0">
+                                <Label Text="4.8 ★"  
+                                       FontSize="13"  
+                                       TextColor="#B299D6"  
+                                       Margin="0,0,10,0"  
+                                       VerticalOptions="Center"/>
+                                <BoxView Color="#888"  
+                                         WidthRequest="3"  
+                                         HeightRequest="3"  
+                                         CornerRadius="1.5"  
+                                         VerticalOptions="Center"  
+                                         Margin="0,0,10,0"/>
+                                <Label Text="30 min"  
+                                       FontSize="13"  
+                                       TextColor="#888"  
+                                       VerticalOptions="Center"/>
+                                <Label Text="$12.75"  
+                                       FontSize="15"  
+                                       TextColor="#222"  
+                                       FontAttributes="Bold"  
+                                       HorizontalOptions="End"  
+                                       Grid.Column="3"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Food Card 3 -->
+                <Frame HasShadow="False"  
+                       BorderColor="#EEE"  
+                       CornerRadius="20"  
+                       Padding="0"  
+                       HeightRequest="220">
+                    <Grid RowDefinitions="130,Auto" ColumnDefinitions="*">
+                        <Frame Padding="0"  
+                               CornerRadius="20"  
+                               HasShadow="False"  
+                               IsClippedToBounds="True"  
+                               HeightRequest="130"  
+                               Grid.Row="0">
+                            <Image Source="sushi_sample.jpg"  
+                                   Aspect="AspectFill"  
+                                   HeightRequest="130"/>
+                        </Frame>
+                        <VerticalStackLayout Grid.Row="1"  
+                                             Spacing="2"  
+                                             Padding="16,10,16,12">
+                            <Label Text="Salmon Sushi Set"  
+                                   FontSize="17"  
+                                   FontAttributes="Bold"  
+                                   TextColor="#222"/>
+                            <Label Text="Sushi • Japanese"  
+                                   FontSize="14"  
+                                   TextColor="#888"/>
+                            <Grid ColumnDefinitions="Auto,Auto,*,Auto" Margin="0,6,0,0">
+                                <Label Text="4.9 ★"  
+                                       FontSize="13"  
+                                       TextColor="#B299D6"  
+                                       Margin="0,0,10,0"  
+                                       VerticalOptions="Center"/>
+                                <BoxView Color="#888"  
+                                         WidthRequest="3"  
+                                         HeightRequest="3"  
+                                         CornerRadius="1.5"  
+                                         VerticalOptions="Center"  
+                                         Margin="0,0,10,0"/>
+                                <Label Text="40 min"  
+                                       FontSize="13"  
+                                       TextColor="#888"  
+                                       VerticalOptions="Center"/>
+                                <Label Text="$18.50"  
+                                       FontSize="15"  
+                                       TextColor="#222"  
+                                       FontAttributes="Bold"  
+                                       HorizontalOptions="End"  
+                                       Grid.Column="3"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
